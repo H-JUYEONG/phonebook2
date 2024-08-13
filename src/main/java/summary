@@ -1,0 +1,15 @@
+<Controller>
+Attribute: request에 리스트 주소를 넣어줌
+forward: jsp에게 일하라고 하는것 
+	-> request.getRequestDispatcher("/result.jsp")를 사용해 /result.jsp로의 요청 전달 객체(RequestDispatcher)를 생성한 후, 
+	    dispatcher.forward(request, response)를 호출하여 클라이언트의 요청을 result.jsp로 전달함
+
+
+<jsp>
+Attribute: Controller에서 보내준 리스트의 주소에서 리스트의 데이터를 사용
+
+
+
+<주소>
+전체내용 확인할때: http://localhost:8080/phonebook/pbc
+jsp 확인할때: http://localhost:8080/phonebook/list.jsp
