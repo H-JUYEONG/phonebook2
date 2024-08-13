@@ -18,9 +18,9 @@ public class PhonebookDao {
 	private ResultSet rs = null;
 
 	private String driver = "com.mysql.cj.jdbc.Driver";
-	private String url = "jdbc:mysql://localhost:3306/book_db";
-	private String id = "book";
-	private String pw = "book";
+	private String url = "jdbc:mysql://localhost:3306/phonebook_db";
+	private String id = "phonebook";
+	private String pw = "phonebook";
 
 	// 생성자
 	// 기본생성자 사용(그래서 생략)
@@ -75,11 +75,11 @@ public class PhonebookDao {
 			// 3. SQL문 준비 / 바인딩 / 실행
 			// *SQL문 준비
 			String query = "";
-			query = " select person_id, ";
-			query = " 		 name, ";
-			query = " 		 hp, ";
-			query = " 		 company, ";
-			query = " from person ";
+			query += " select person_id, ";
+			query += " 		 name, ";
+			query += " 		 hp, ";
+			query += " 		 company ";
+			query += " from person ";
 
 			// 바인딩
 			pstmt = conn.prepareStatement(query);
