@@ -13,7 +13,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>리스트</title>
 </head>
 <body>
 	<h1>전화번호부</h1>
@@ -37,7 +37,7 @@
 				<td><%=personList.get(i).getCompany() %></td>
 			</tr>
 			<tr>
-				<td>[수정폼으로 이동]</td>
+				<td><a href="/phonebook/pbc?action=editForm&no=<%=personList.get(i).getPersonId() %>">[수정폼으로 이동]</a></td>
 				<td>[삭제]</td>
 			</tr>
 		</tbody>

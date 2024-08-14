@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>등록폼</title>
 </head>
 <body>
 	<h1>전화번호부</h1>
@@ -13,21 +13,22 @@
 	
 	<p>아래의 항목을 입력한 후 등록버튼을 클릭해 주세요</p>
 	
-	<form action="" method="">
+	<form action="http://localhost:8080/phonebook/pbc" method="get">
 		<div>
 			<label for="txt-name">이름(name):</label>
-			<input id="txt-name" type="text" name="" value="" placeholder="이름">
+			<input id="txt-name" type="text" name="name" value="" placeholder="이름">
 		</div>
 		<div>
 			<label for="txt-hp">핸드폰(hp):</label>
-			<input id="txt-hp" type="text" name="" value="" placeholder="핸드폰">
+			<input id="txt-hp" type="text" name="hp" value="" placeholder="핸드폰">
 		</div>
 		<div>
 			<label for="txt-company">회사(company):</label>
-			<input id="txt-company" type="text" name="" value="" placeholder="회사">
+			<input id="txt-company" type="text" name="company" value="" placeholder="회사">
 		</div>
+		<input type="hidden" name="action" value="insert">
 		<br>
-		<button type="submit">저장(전송)</button>
+		<button type="submit">등록(전송)</button>
 	</form>
 	
 	<br><br>

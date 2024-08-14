@@ -8,8 +8,21 @@ forward: jsp에게 일하라고 하는것
 <jsp>
 Attribute: Controller에서 보내준 리스트의 주소에서 리스트의 데이터를 사용
 
+<포워드와 리다이렉트의 차이점>
+- 포워드는 사용자가 모르고 직원이 일을 하는것
+- 리다이렉트는 사용자가 그 일을 한것
 
 
 <주소>
 전체내용 확인할때: http://localhost:8080/phonebook/pbc
-jsp 확인할때: http://localhost:8080/phonebook/list.jsp
+jsp확인할때: http://localhost:8080/phonebook/list.jsp
+insert할때: http://localhost:8080/phonebook/pbc?action=insert&name=정우성&hp=010&company=02
+		   http://localhost:8080/phonebook/pbc?name=정우성&hp=010&company=02&action=insert
+update할때: http://localhost:8080/phonebook/pbc?action=update&name=d&hp=012&company=03&no=1
+
+
+writeForm.jsp의 input 태그에서 name="name"의 "name"은 주소의 name=을 뜻함
+(Controller에서 String name = request.getParameter("name"); 정의함)
+request.getParameter("name")이 주소에 보이는 name= 부분임
+
+request.setAttribute("personVo", personVo);에서 "personVo"는 내가 원하는 이름으로 정의

@@ -64,6 +64,120 @@ public class PhonebookDao {
 		}
 	}
 
+	// 사람 정보 수정하기
+	public int updatePerson(PersonVo personVo) {
+		System.out.println(personVo);
+		System.out.println("----");
+		
+		int count = -1;
+		this.getConnection();
+
+		try {
+			// 3. SQL문 준비 / 바인딩 / 실행
+			// *SQL문 준비
+			String query = "";
+			query += " update person ";
+			query += " set name= ?, ";
+			query += " 	   hp = ?, ";
+			query += "     company = ? ";
+			query += " where person_id= ? ";
+
+			// 바인딩
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, personVo.getName());
+			pstmt.setString(2, personVo.getHp());
+			pstmt.setString(3, personVo.getCompany());
+			pstmt.setInt(4, personVo.getPersonId());
+
+			// 실행
+			count = pstmt.executeUpdate();
+			
+			// 4. 결과처리
+			System.out.println("dao 결과" + count);
+
+		} catch (SQLException e) {
+			System.out.println("error:" + e);
+		}
+
+		this.close();
+		
+		return count;
+	}
+	
+	// 사람 1명 정보 가져오기
+	public PersonVo getPersonOne(int no) {
+		
+		PersonVo personVo = null;
+
+		this.getConnection();
+
+		try {
+			// 3. SQL문 준비 / 바인딩 / 실행
+			// *SQL문 준비
+			String query = "";
+			query += " select person_id, ";
+			query += " 		  name, ";
+			query += " 		  hp, ";
+			query += " 		  company ";
+			query += " from person ";
+			query += " where person_id = ? ";
+
+			// 바인딩
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, no);
+
+			// 실행
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				int id = rs.getInt("person_id");
+				String name = rs.getString("name");
+				String hp = rs.getString("hp");
+				String company = rs.getString("company");
+
+				personVo = new PersonVo(id, name, hp, company);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("error:" + e);
+		}
+
+		this.close();
+
+		return personVo;
+	}
+
+	// 사람정보 저장
+	public int insertPerson(PersonVo personVo) {
+
+		int count = -1;
+		this.getConnection();
+
+		try {
+			// 3. SQL문 준비 / 바인딩 / 실행
+			// *SQL문 준비
+			String query = "";
+			query += " insert into person ";
+			query += " values(null, ?, ?, ?) ";
+
+			// 바인딩
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, personVo.getName());
+			pstmt.setString(2, personVo.getHp());
+			pstmt.setString(3, personVo.getCompany());
+
+			// 실행
+			count = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println("error:" + e);
+		}
+
+		this.close();
+
+		return count;
+	}
+
 	// 리스트 가져오기
 	public List<PersonVo> getPersonList() {
 
@@ -76,9 +190,9 @@ public class PhonebookDao {
 			// *SQL문 준비
 			String query = "";
 			query += " select person_id, ";
-			query += " 		 name, ";
-			query += " 		 hp, ";
-			query += " 		 company ";
+			query += " 		  name, ";
+			query += " 		  hp, ";
+			query += " 		  company ";
 			query += " from person ";
 
 			// 바인딩
@@ -103,7 +217,7 @@ public class PhonebookDao {
 		}
 
 		this.close();
-		
+
 		return personList;
 
 	}
