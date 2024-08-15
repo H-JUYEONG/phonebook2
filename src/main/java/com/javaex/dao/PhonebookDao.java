@@ -64,11 +64,41 @@ public class PhonebookDao {
 		}
 	}
 
+	// 사람 정보 삭제하기
+	public int deletePerson(PersonVo personVo) {
+
+		int count = -1;
+		this.getConnection();
+
+		try {
+			// 3. SQL문 준비 / 바인딩 / 실행
+			// *SQL문 준비
+			String query = "";
+			query += " delete from person ";
+			query += " where person_id = ? ";
+
+			// 바인딩
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, personVo.getPersonId());
+
+			// 실행
+			count = pstmt.executeUpdate();
+
+			// 4. 결과처리
+			System.out.println("dao 결과" + count);
+
+		} catch (SQLException e) {
+			System.out.println("error:" + e);
+		}
+
+		this.close();
+
+		return count;
+	}
+
 	// 사람 정보 수정하기
 	public int updatePerson(PersonVo personVo) {
-		System.out.println(personVo);
-		System.out.println("----");
-		
+
 		int count = -1;
 		this.getConnection();
 
@@ -91,7 +121,7 @@ public class PhonebookDao {
 
 			// 실행
 			count = pstmt.executeUpdate();
-			
+
 			// 4. 결과처리
 			System.out.println("dao 결과" + count);
 
@@ -100,13 +130,13 @@ public class PhonebookDao {
 		}
 
 		this.close();
-		
+
 		return count;
 	}
-	
+
 	// 사람 1명 정보 가져오기
 	public PersonVo getPersonOne(int no) {
-		
+
 		PersonVo personVo = null;
 
 		this.getConnection();
