@@ -65,7 +65,10 @@ public class PhonebookDao {
 	}
 
 	// 사람 정보 삭제하기
-	public int deletePerson(PersonVo personVo) {
+	public int deletePerson(int no) {
+		System.out.println("----");
+		System.out.println(no);
+		System.out.println("----");
 
 		int count = -1;
 		this.getConnection();
@@ -79,7 +82,7 @@ public class PhonebookDao {
 
 			// 바인딩
 			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, personVo.getPersonId());
+			pstmt.setInt(1, no);
 
 			// 실행
 			count = pstmt.executeUpdate();
@@ -98,6 +101,9 @@ public class PhonebookDao {
 
 	// 사람 정보 수정하기
 	public int updatePerson(PersonVo personVo) {
+		System.out.println("----");
+		System.out.println(personVo);
+		System.out.println("----");
 
 		int count = -1;
 		this.getConnection();

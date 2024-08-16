@@ -85,7 +85,7 @@ public class PhonebookController extends HttpServlet {
 
 			// 리다이렉트
 			// http://localhost:8080/phonebook/pbc?action=list
-			response.sendRedirect("/phonebook/pbc?action=list");
+			response.sendRedirect("/phonebook2/pbc?action=list");
 
 		} else if ("editForm".equals(action)) {
 
@@ -131,7 +131,7 @@ public class PhonebookController extends HttpServlet {
 
 			// 리다이렉트
 			// http://localhost:8080/phonebook/pbc?action=list
-			response.sendRedirect("/phonebook/pbc?action=list");
+			response.sendRedirect("/phonebook2/pbc?action=list");
 
 		} else if ("delete".equals(action)) {
 
@@ -143,15 +143,14 @@ public class PhonebookController extends HttpServlet {
 			// Dao를 메모리에 올린다
 			PhonebookDao phonebookDao = new PhonebookDao();
 
-			// getPersonOne(no)로 1명의 데이터의 주소를 가져온다
-			PersonVo personVo = phonebookDao.getPersonOne(no);
-
 			// PhonebookDao를 통해서 삭제(delete)을 시킨다
-			phonebookDao.deletePerson(personVo);
+			phonebookDao.deletePerson(no);
 
 			// 리다이렉트
-			response.sendRedirect("/phonebook/pbc?action=list");
+			response.sendRedirect("/phonebook2/pbc?action=list");
 
+		} else {
+			System.out.println("action없음");
 		}
 
 	}

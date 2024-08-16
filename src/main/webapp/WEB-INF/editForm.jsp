@@ -19,7 +19,7 @@
 	
 	<p>수정할 항목을 입력한 후 수정버튼을 클릭해 주세요</p>
 	
-	<form action="/phonebook/pbc" method="get">
+	<form action="/phonebook2/pbc" method="get">
 		<div>
 			<label for="txt-name">이름(name):</label>
 			<input id="txt-name" type="text" name="name" value="<%=personVo.getName()%>" placeholder="이름">

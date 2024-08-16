@@ -13,7 +13,7 @@
 	
 	<p>아래의 항목을 입력한 후 등록버튼을 클릭해 주세요</p>
 	
-	<form action="http://localhost:8080/phonebook/pbc" method="get">
+	<form action="http://localhost:8080/phonebook2/pbc" method="get">
 		<div>
 			<label for="txt-name">이름(name):</label>
 			<input id="txt-name" type="text" name="name" value="" placeholder="이름">
@@ -32,6 +32,6 @@
 	</form>
 	
 	<br><br>
-	<a href="#">리스트로 가기</a>
+	<a href="/phonebook2/pbc?action=list">리스트로 가기</a>
 </body>
 </html>

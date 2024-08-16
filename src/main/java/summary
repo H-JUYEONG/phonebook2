@@ -14,11 +14,11 @@ Attribute: Controller에서 보내준 리스트의 주소에서 리스트의 데
 
 
 <주소>
-전체내용 확인할때: http://localhost:8080/phonebook/pbc
-jsp확인할때: http://localhost:8080/phonebook/list.jsp
-insert할때: http://localhost:8080/phonebook/pbc?action=insert&name=정우성&hp=010&company=02
-		   http://localhost:8080/phonebook/pbc?name=정우성&hp=010&company=02&action=insert
-update할때: http://localhost:8080/phonebook/pbc?action=update&name=d&hp=012&company=03&no=1
+전체내용 확인할때: http://localhost:8080/phonebook2/pbc
+jsp확인할때: http://localhost:8080/phonebook2/list.jsp
+insert할때: http://localhost:8080/phonebook2/pbc?action=insert&name=정우성&hp=010&company=02
+		   http://localhost:8080/phonebook2/pbc?name=정우성&hp=010&company=02&action=insert
+update할때: http://localhost:8080/phonebook2/pbc?action=update&name=d&hp=012&company=03&no=1
 
 
 writeForm.jsp의 input 태그에서 name="name"의 "name"은 주소의 name=을 뜻함
