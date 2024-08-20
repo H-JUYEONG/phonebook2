@@ -35,7 +35,7 @@
 					<td>${personVo.company}</td>
 				</tr>
 				<tr>
-					<td><a href="http://localhost:8080/phonebook2/pbc?action=editform&no=${personVo.personId}">[수정폼으로 이동]</a></td>
+					<td><a href="http://localhost:8080/phonebook2/pbc?action=editForm&no=${personVo.personId}">[수정폼으로 이동]</a></td>
 					<td><a href="/phonebook2/pbc?action=delete&no=${personVo.personId}">[삭제]</a></td>
 				</tr>
 				
